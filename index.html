@@ -6,59 +6,107 @@
     <title>AI×好きを形にする「設計図」</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 背景にデジタル回路の画像を重ねる */
-        .hero-section {
-            background: linear-gradient(rgba(10, 20, 50, 0.85), rgba(10, 20, 50, 0.95)),
-                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070');
+        /* 深みのあるデジタル背景 */
+        .hero-bg {
+            background: linear-gradient(rgba(5, 15, 40, 0.9), rgba(5, 15, 40, 0.95)),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
         }
-        /* カードをさらに豪華に */
-        .glass-panel {
+        .cyber-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 191, 255, 0.3);
-            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
         }
-        .glow-blue { text-shadow: 0 0 15px rgba(0, 191, 255, 0.8); }
+        .glow-text { text-shadow: 0 0 20px rgba(56, 189, 248, 0.7); }
     </style>
 </head>
-<body class="bg-slate-950 text-white font-sans">
+<body class="bg-slate-950 text-white font-sans antialiased">
 
-    <section class="hero-section min-h-screen flex flex-col items-center justify-center text-center px-6">
-        <div class="mb-8 px-6 py-1 border border-yellow-500 text-yellow-500 rounded-full font-bold bg-yellow-900/20">
-            ★ 夢を遂げて飛躍ある ★
-        </div>
-        <h1 class="text-4xl md:text-7xl font-black mb-10 leading-tight glow-blue">
-            あなたの「好き」を、<br>
-            <span class="text-blue-400 italic">知能にわせん</span>
-        </h1>
-
-        <div class="glass-panel p-8 rounded-3xl max-w-5xl w-full grid grid-cols-2 md:grid-cols-5 gap-6 border-b-4 border-blue-500">
-            <div class="text-center"><p class="text-3xl font-bold text-blue-400">99%</p><p class="text-xs opacity-60">満足度</p></div>
-            <div class="text-center"><p class="text-3xl font-bold text-blue-400">99円</p><p class="text-xs opacity-60">お試し</p></div>
-            <div class="text-center"><p class="text-3xl font-bold text-blue-400">1/10</p><p class="text-xs opacity-60">時間短縮</p></div>
-            <div class="text-center"><p class="text-3xl font-bold text-blue-400">0円</p><p class="text-xs opacity-60">リスク</p></div>
-            <div class="text-center"><p class="text-3xl font-bold text-blue-400">0円</p><p class="text-xs opacity-60">初期費用</p></div>
+    <section class="hero-bg min-h-screen flex items-center justify-center py-24 px-6 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-block px-6 py-1 mb-8 border border-yellow-500/50 rounded-full text-yellow-400 text-sm font-bold bg-yellow-900/20 glow-text">
+                ★ 夢を遂げて飛躍ある ★
+            </div>
+            <h1 class="text-4xl md:text-7xl font-black mb-10 leading-tight tracking-tighter glow-text">
+                あなたの「好き」を武器に、<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-blue-300">知能を、解放する。</span>
+            </h1>
+            <p class="text-lg md:text-xl text-blue-100/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+                能力の不足ではなく、役割分担のミス。<br>
+                あなたの「好き」を、AIという最強のパートナーで形にする。
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-16">
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50 text-center"><p class="text-2xl font-bold text-blue-400">99%</p><p class="text-[10px] opacity-60">満足度</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50 text-center"><p class="text-2xl font-bold text-blue-400">99円</p><p class="text-[10px] opacity-60">お試し</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50 text-center"><p class="text-2xl font-bold text-blue-400">1/10</p><p class="text-[10px] opacity-60">時間短縮</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50 text-center"><p class="text-2xl font-bold text-blue-400">1/10</p><p class="text-[10px] opacity-60">負担軽減</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50 text-center"><p class="text-2xl font-bold text-blue-400">0円</p><p class="text-[10px] opacity-60">リスク</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50 text-center"><p class="text-2xl font-bold text-blue-400">0円</p><p class="text-[10px] opacity-60">初期費用</p></div>
+            </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-slate-900/50">
+    <section class="py-24 px-6 bg-white text-slate-900">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">能力が足りないわけではありません。</h2>
+            <div class="space-y-8 text-lg leading-relaxed text-slate-700">
+                <p>やり方を知らないわけでも、才能がないわけでもありません。</p>
+                <p>ただ、あなたは今、**「すべてを自分一人でやろうとしている」**だけなのかもしれません。</p>
+                <p>文章を考え、構成を練り、形にする。その膨大な工程を一人で背負う構造自体に、無理が生じているのです。自分を責める必要は、どこにもありません。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-slate-950 relative border-y border-blue-900">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#38bdf8 1px, transparent 1px); background-size: 20px 20px;"></div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-20 italic text-blue-100">AIを味方にする構造</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="cyber-card p-10 rounded-3xl relative">
+                    <span class="absolute top-6 right-8 text-4xl font-black opacity-10">1</span>
+                    <h3 class="text-xl font-bold mb-6 text-blue-300 italic">「好き」を仕事に</h3>
+                    <p class="text-sm leading-relaxed opacity-70 italic">
+                        能力が足りないわけではありません。ただ、一人で抱え込む構造に無理があるだけなのです。
+                    </p>
+                </div>
+                <div class="cyber-card p-10 rounded-3xl relative bg-blue-900/20 border-blue-400">
+                    <span class="absolute top-6 right-8 text-4xl font-black opacity-10 text-blue-400">2</span>
+                    <h3 class="text-xl font-bold mb-6 text-blue-100 italic">判断を肩代わり</h3>
+                    <p class="text-sm leading-relaxed">
+                        AIが実務を担い、あなたは「確認してOKを出す」だけ。思考の余白が、成功を生みます。
+                    </p>
+                </div>
+                <div class="cyber-card p-10 rounded-3xl relative">
+                    <span class="absolute top-6 right-8 text-4xl font-black opacity-10">3</span>
+                    <h3 class="text-xl font-bold mb-6 text-blue-300 italic">設計図を手にする</h3>
+                    <p class="text-sm leading-relaxed opacity-70 italic">
+                        孤独な努力はもう終わり。AIがあなたの専属チームとなり、24時間支え続けます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-slate-50 text-slate-900">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 glow-blue">実績者の声</h2>
+            <h2 class="text-3xl font-bold text-center mb-16">実践者の声</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass-panel p-8 rounded-2xl flex items-center gap-6">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 rounded-full border-2 border-blue-500 shadow-lg">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-center gap-6">
+                    <img src="https://images.unsplash.com/photo-1542381040-4043d8b56656?auto=format&fit=crop&q=80&w=200" class="w-24 h-24 rounded-full object-cover">
                     <div>
-                        <p class="font-bold text-blue-300 mb-2">ITコンサルタント A様</p>
-                        <p class="text-sm opacity-80 italic">「AIが実務を担い、私は最終チェックをするだけ。これこそが求めていた自由です。」</p>
+                        <p class="font-bold text-lg mb-2 text-blue-700">佐藤 健一 様 (40代・経営者)</p>
+                        <p class="text-sm text-slate-600 italic">「今まで1日かかっていた企画作成が、AIとの対話で1時間に。もうAIなしの生活は考えられません。」</p>
                     </div>
                 </div>
-                <div class="glass-panel p-8 rounded-2xl flex items-center gap-6">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 rounded-full border-2 border-blue-500 shadow-lg">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-center gap-6">
+                    <img src="https://images.unsplash.com/photo-1573166364524-d9dbfd8bbf83?auto=format&fit=crop&q=80&w=200" class="w-24 h-24 rounded-full object-cover">
                     <div>
-                        <p class="font-bold text-blue-300 mb-2">クリエイター B様</p>
-                        <p class="text-sm opacity-80 italic">「孤独な作業が、AIという相棒とのチームプレイに変わりました。売上も3倍に。」</p>
+                        <p class="font-bold text-lg mb-2 text-blue-700">田中 恵美 様 (30代・フリーランス)</p>
+                        <p class="text-sm text-slate-600 italic">「苦手な実務をすべてAIに任せ、自分は『好き』を追求することに集中できています。」</p>
                     </div>
                 </div>
             </div>
@@ -66,9 +114,13 @@
     </section>
 
     <section class="py-32 px-6 text-center">
-        <button class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-black py-8 px-16 rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.5)] text-3xl hover:scale-110 transition-all active:scale-95">
-            無料で設計図を受け取る
-        </button>
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-extrabold mb-12 text-blue-100 glow-text">次は、あなたの番です。</h2>
+            <button class="w-full bg-gradient-to-r from-blue-500 via-indigo-600 to-blue-500 text-white font-black py-8 rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.5)] text-3xl hover:scale-[1.03] transition-all">
+                無料で「設計図」を受け取る
+            </button>
+            <p class="mt-12 text-xs opacity-40">© 2026 AI Support Project. All Rights Reserved.</p>
+        </div>
     </section>
 
 </body>
