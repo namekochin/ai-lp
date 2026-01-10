@@ -6,101 +6,87 @@
     <title>AI×好きを形にする「設計図」</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #020617; color: #f1f5f9; font-family: "Hiragino Sans", "Meiryo", sans-serif; line-height: 1.8; }
+        body { background-color: #020617; color: #f1f5f9; font-family: "Hiragino Sans", "Meiryo", sans-serif; }
         
+        /* ヒーロー背景：グリッドとデータのビジネス感を再現 */
         .hero-bg {
-            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95)),
-                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.3) 0%, #020617 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero-bg::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px; z-index: 0;
         }
 
-        /* 時計回りに光が走る外枠 */
+        /* 時計回りに光が動く枠（完成版） */
         .cyber-card {
-            position: relative;
-            background: #0f172a;
-            border-radius: 8px;
-            padding: 2px;
-            overflow: hidden;
-            display: flex;
+            position: relative; background: #0f172a; border-radius: 8px; padding: 2px; overflow: hidden; display: flex;
         }
         .cyber-card::before {
-            content: "";
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: conic-gradient(transparent, transparent, #38bdf8, transparent 25%);
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, #38bdf8, transparent 20%);
             animation: rotate 4s linear infinite;
         }
-        .card-inner {
-            background: #0f172a;
-            border-radius: 7px;
-            padding: 1.5rem;
-            width: 100%;
-            z-index: 10;
-        }
+        .card-inner { background: #0f172a; border-radius: 7px; padding: 1.5rem; width: 100%; z-index: 10; }
         @keyframes rotate { 100% { transform: rotate(360deg); } }
 
+        /* 右側画像のようなゴージャス白背景 */
         .gorgeous-white {
-            background: #ffffff;
-            color: #1e293b;
+            background: #ffffff; color: #1e293b;
             background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
             background-size: 30px 30px;
         }
-
-        .img-mask { border-radius: 50%; border: 3px solid #38bdf8; overflow: hidden; width: 80px; height: 80px; flex-shrink: 0; }
-        .img-mask img { width: 100%; height: 100%; object-fit: cover; }
+        .glow-text { text-shadow: 0 0 15px rgba(56, 189, 248, 0.6); }
     </style>
 </head>
 <body class="antialiased">
 
     <section class="hero-bg min-h-screen flex items-center justify-center py-20 px-6 text-center">
         <div class="max-w-4xl mx-auto z-10">
-            <div class="inline-block px-4 py-1 mb-8 border border-blue-500/50 text-blue-400 rounded-sm text-xs tracking-[0.3em] bg-blue-900/20 uppercase">
-                AI Support Project 2026
-            </div>
-            <h1 class="text-3xl md:text-5xl font-bold mb-10 leading-relaxed tracking-wider italic">
+            <h1 class="text-3xl md:text-5xl font-bold mb-10 leading-relaxed tracking-wider glow-text">
                 どれほど歩いても、<br>景色が変わらない感覚。
             </h1>
             <div class="grid grid-cols-2 md:grid-cols-6 gap-2">
-                <div class="cyber-card"><div class="card-inner py-2 px-1 text-[10px]">構造の変革</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 px-1 text-[10px]">思考の余白</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 px-1 text-[10px]">役割の分離</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 px-1 text-[10px]">判断の委譲</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 px-1 text-[10px]">設計図の共有</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 px-1 text-[10px]">誠実な一歩</div></div>
+                <div class="cyber-card"><div class="card-inner py-2 text-[10px]">構造の変革</div></div>
+                <div class="cyber-card"><div class="card-inner py-2 text-[10px]">思考の余白</div></div>
+                <div class="cyber-card"><div class="card-inner py-2 text-[10px]">役割の分離</div></div>
+                <div class="cyber-card"><div class="card-inner py-2 text-[10px]">判断の委譲</div></div>
+                <div class="cyber-card"><div class="card-inner py-2 text-[10px]">設計図の共有</div></div>
+                <div class="cyber-card"><div class="card-inner py-2 text-[10px]">誠実な一歩</div></div>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6 gorgeous-white text-center">
-        <div class="max-w-3xl mx-auto text-lg leading-loose">
+        <div class="max-w-3xl mx-auto">
             <h2 class="text-2xl md:text-3xl font-black mb-12 text-slate-800 italic">能力の問題ではありません。</h2>
-            <p>問題の正体は、<span class="text-blue-600 font-bold border-b-2 border-blue-200">「すべてを一人で背負う構造」</span>にあります。</p>
+            <p class="text-lg text-slate-600 leading-loose">
+                問題の正体は、<span class="text-blue-600 font-bold border-b-2 border-blue-200">「すべてを一人で背負う構造」</span>にあります。
+            </p>
         </div>
     </section>
 
-    <section class="py-24 px-6 gorgeous-white border-b border-slate-200">
+    <section class="py-24 px-6 gorgeous-white border-y border-slate-200">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-black text-center mb-16 text-slate-800 italic">実践者の声</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <h2 class="text-3xl font-black text-center mb-16 text-slate-800">実践者の声</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
                 <div class="bg-white p-8 rounded-xl shadow-xl flex items-center gap-6 border border-slate-100">
-                    <div class="img-mask">
-                        <img src="https://images.unsplash.com/photo-1542381040-4043d8b56656?auto=format&fit=crop&q=80&w=200" alt="片山様">
+                    <div class="w-20 h-20 bg-slate-100 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-blue-400 overflow-hidden">
+                        <svg viewBox="0 0 100 100" class="w-16 h-16"><circle cx="50" cy="35" r="20" fill="#334155"/><path d="M20 90c0-15 10-25 30-25s30 10 30 25H20z" fill="#334155"/></svg>
                     </div>
                     <div>
                         <p class="font-bold text-blue-900 text-lg">片山 健 様 (40代・経営者)</p>
-                        <p class="text-sm text-slate-500 italic">「AIとの連携で景色が変わり、心のゆとりが生まれました。」</p>
+                        <p class="text-sm text-slate-500 italic">「作業が1時間に短縮。AIとの連携で景色が変わり、心のゆとりが生まれました。」</p>
                     </div>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-xl flex items-center gap-6 border border-slate-100">
-                    <div class="img-mask">
-                        <img src="https://images.unsplash.com/photo-1573166364524-d9dbfd8bbf83?auto=format&fit=crop&q=80&w=200" alt="河田様">
+                    <div class="w-20 h-20 bg-pink-50 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-pink-300 overflow-hidden">
+                        <svg viewBox="0 0 100 100" class="w-16 h-16"><circle cx="50" cy="35" r="18" fill="#4a5568"/><path d="M20 90c0-12 10-22 30-22s30 10 30 22H20z" fill="#4a5568"/><path d="M32 25c0-5 8-10 18-10s18 5 18 10v10H32V25z" fill="#4a5568"/></svg>
                     </div>
                     <div>
                         <p class="font-bold text-blue-900 text-lg">河田 恵美 様 (30代・個人)</p>
-                        <p class="text-sm text-slate-500 italic">「苦手な実務をAIに任せ、『好き』な活動に集中できています。」</p>
+                        <p class="text-sm text-slate-500 italic">「苦手な実務をAIに任せ、自分は『好き』な活動に集中できています。」</p>
                     </div>
                 </div>
             </div>
