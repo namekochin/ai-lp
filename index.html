@@ -8,48 +8,43 @@
     <style>
         body { background-color: #050a1f; color: white; overflow-x: hidden; }
         
-        /* ヒーロー背景 */
         .hero-bg {
             background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.4) 0%, #050a1f 100%),
                         url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
         }
 
-        /* 時計回りに光が動く枠線の設定 */
+        /* 時計回りに光が動く枠 */
         .cyber-card {
             position: relative;
-            background: rgba(10, 20, 50, 0.8);
-            border-radius: 1rem;
+            background: #0f172a;
+            border-radius: 1.2rem;
+            padding: 2px;
             overflow: hidden;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            display: flex;
         }
-
         .cyber-card::before {
-            content: '';
+            content: "";
             position: absolute;
             top: -50%; left: -50%;
             width: 200%; height: 200%;
-            background: conic-gradient(transparent, transparent, transparent, #38bdf8);
-            animation: rotate 4s linear infinite;
-            z-index: -1;
+            background: conic-gradient(transparent, transparent, #38bdf8, transparent 30%);
+            animation: rotate 3s linear infinite;
         }
-
-        .cyber-card::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
+        .card-content {
             background: #0f172a;
-            border-radius: 0.9rem;
-            z-index: -1;
+            border-radius: calc(1.2rem - 2px);
+            padding: 1.5rem;
+            width: 100%;
+            z-index: 10;
         }
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
 
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* ゴージャス白背景（画像右の再現） */
+        /* 高級感のある白背景 */
         .gorgeous-white {
-            background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 50% 0%, rgba(56, 189, 248, 0.1) 0, transparent 50%),
+                url('https://www.transparenttextures.com/patterns/subtle-white-vectors.png');
             color: #1e293b;
         }
 
@@ -60,8 +55,8 @@
 
     <section class="hero-bg min-h-screen flex items-center justify-center py-20 px-6 text-center">
         <div class="max-w-5xl mx-auto z-10">
-            <div class="inline-block px-5 py-1 mb-8 border border-blue-400 text-blue-300 rounded-full font-bold bg-blue-900/40 glow-text text-sm">
-                AI BUSINESS INNOVATION 2026
+            <div class="inline-block px-5 py-1 mb-8 border border-blue-400 text-blue-300 rounded-full font-bold bg-blue-900/40 glow-text text-sm tracking-widest uppercase">
+                AI Business Innovation 2026
             </div>
             <h1 class="text-4xl md:text-7xl font-black mb-10 leading-tight glow-text">
                 あなたの「好き」を武器に、<br>
@@ -69,58 +64,78 @@
             </h1>
             
             <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-16">
-                <div class="cyber-card p-4 rounded-xl shadow-lg"><p class="text-xl font-bold text-blue-400">99%</p><p class="text-[8px] opacity-60">満足度</p></div>
-                <div class="cyber-card p-4 rounded-xl shadow-lg"><p class="text-xl font-bold text-blue-400">99円</p><p class="text-[8px] opacity-60">お試し</p></div>
-                <div class="cyber-card p-4 rounded-xl shadow-lg"><p class="text-xl font-bold text-blue-400">1/10</p><p class="text-[8px] opacity-60">時間短縮</p></div>
-                <div class="cyber-card p-4 rounded-xl shadow-lg"><p class="text-xl font-bold text-blue-400">1/10</p><p class="text-[8px] opacity-60">負担軽減</p></div>
-                <div class="cyber-card p-4 rounded-xl shadow-lg"><p class="text-xl font-bold text-blue-400">0円</p><p class="text-[8px] opacity-60">リスク</p></div>
-                <div class="cyber-card p-4 rounded-xl shadow-lg"><p class="text-xl font-bold text-blue-400">0円</p><p class="text-[8px] opacity-60">初期費用</p></div>
+                <div class="cyber-card"><div class="card-content text-center"><p class="text-xl font-bold text-blue-400">99%</p><p class="text-[8px] opacity-60 uppercase">Satisfaction</p></div></div>
+                <div class="cyber-card"><div class="card-content text-center"><p class="text-xl font-bold text-blue-400">99円</p><p class="text-[8px] opacity-60 uppercase">Trial</p></div></div>
+                <div class="cyber-card"><div class="card-content text-center"><p class="text-xl font-bold text-blue-400">1/10</p><p class="text-[8px] opacity-60 uppercase">Time</p></div></div>
+                <div class="cyber-card"><div class="card-content text-center"><p class="text-xl font-bold text-blue-400">1/10</p><p class="text-[8px] opacity-60 uppercase">Effort</p></div></div>
+                <div class="cyber-card"><div class="card-content text-center"><p class="text-xl font-bold text-blue-400">0円</p><p class="text-[8px] opacity-60 uppercase">Risk</p></div></div>
+                <div class="cyber-card"><div class="card-content text-center"><p class="text-xl font-bold text-blue-400">0円</p><p class="text-[8px] opacity-60 uppercase">Cost</p></div></div>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6 gorgeous-white text-center">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-black mb-12 text-blue-900">能力が足りないわけではありません。</h2>
-            <div class="space-y-8 text-lg leading-loose font-medium text-slate-700">
+            <h2 class="text-3xl md:text-4xl font-black mb-16 text-slate-800 leading-snug">能力が足りないわけでは<br class="md:hidden">ありません。</h2>
+            <div class="space-y-10 text-lg md:text-xl leading-loose font-medium text-slate-600">
                 <p>やり方を知らないわけでも、才能がないわけでもありません。</p>
-                <p class="text-blue-600 font-extrabold border-b-2 border-blue-200 inline-block">「すべてを自分一人でやろうとしている」だけなのかもしれません。</p>
-                <p>文章を考え、構成を練り、形にする。その膨大な工程を一人で背負う構造自体に、無理が生じているのです。</p>
+                <p>ただ、あなたは今、<br class="md:hidden"><span class="text-blue-600 font-extrabold border-b-4 border-blue-100 px-2">「すべてを自分一人でやろうとしている」</span><br class="md:hidden">だけなのかもしれません。</p>
+                <p>文章を考え、構成を練り、形にする。<br>その膨大な工程を一人で背負う構造自体に、無理が生じているのです。</p>
+                <p class="pt-6">自分を責める必要は、どこにもありません。</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-slate-950">
+    <section class="py-24 px-6 bg-slate-950 border-y border-blue-900/30 relative">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-20 glow-text italic">AIを味方にする構造</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="cyber-card"><div class="card-content">
+                    <h3 class="text-xl font-bold mb-6 text-blue-300 italic">「好き」を仕事に</h3>
+                    <p class="text-sm leading-relaxed opacity-70">能力が足りないわけではありません。ただ、一人で抱え込む構造に無理があるだけなのです。</p>
+                </div></div>
+                <div class="cyber-card"><div class="card-content">
+                    <h3 class="text-xl font-bold mb-6 text-blue-100 italic">判断を肩代わり</h3>
+                    <p class="text-sm leading-relaxed">AIが実務を担い、あなたは「確認してOKを出す」だけ。思考の余白が、成功を生みます。</p>
+                </div></div>
+                <div class="cyber-card"><div class="card-content">
+                    <h3 class="text-xl font-bold mb-6 text-blue-300 italic">設計図を手にする</h3>
+                    <p class="text-sm leading-relaxed opacity-70">孤独な努力はもう終わり。AIがあなたの専属チームとなり、24時間支え続けます。</p>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 gorgeous-white">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 glow-text">実践者の声</h2>
+            <h2 class="text-3xl font-black text-center mb-16 text-slate-800">実践者の声</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="cyber-card p-8 rounded-3xl flex items-center gap-6">
-                    <div class="relative z-10 flex items-center gap-6">
-                        <img src="https://images.pexels.com/photos/3778603/pexels-photo-3778603.jpeg?auto=compress&cs=tinysrgb&w=200" class="w-20 h-20 rounded-full border-2 border-blue-400 object-cover">
-                        <div>
-                            <p class="font-bold text-blue-300">佐藤 健一 様 (40代)</p>
-                            <p class="text-xs opacity-80 leading-relaxed italic">「1日かかっていた企画作成が、AIとの対話で1時間に。もう手放せません。」</p>
-                        </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6 border border-slate-100">
+                    <img src="https://images.unsplash.com/photo-1542381040-4043d8b56656?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 rounded-full object-cover border-2 border-blue-500">
+                    <div>
+                        <p class="font-bold text-blue-900">佐藤 健一 様 (40代・経営)</p>
+                        <p class="text-sm text-slate-500 italic">「企画作成が1時間に短縮。AIなしの生活はもう考えられません。」</p>
                     </div>
                 </div>
-                <div class="cyber-card p-8 rounded-3xl flex items-center gap-6">
-                    <div class="relative z-10 flex items-center gap-6">
-                        <img src="https://images.pexels.com/photos/7653916/pexels-photo-7653916.jpeg?auto=compress&cs=tinysrgb&w=200" class="w-20 h-20 rounded-full border-2 border-blue-400 object-cover">
-                        <div>
-                            <p class="font-bold text-blue-300">田中 恵美 様 (30代)</p>
-                            <p class="text-xs opacity-80 leading-relaxed italic">「苦手な実務をすべてAIに任せ、自分は『好き』を追求できています。」</p>
-                        </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6 border border-slate-100">
+                    <img src="https://images.unsplash.com/photo-1573166364524-d9dbfd8bbf83?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 rounded-full object-cover border-2 border-blue-500">
+                    <div>
+                        <p class="font-bold text-blue-900">田中 恵美 様 (30代・個人)</p>
+                        <p class="text-sm text-slate-500 italic">「苦手な実務をAIに任せ、自分は『好き』に集中できています。」</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 text-center">
-        <button class="w-full max-w-lg bg-gradient-to-r from-blue-500 to-indigo-700 text-white font-black py-8 rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.5)] text-3xl hover:scale-105 transition-all">
-            無料で「設計図」を受け取る
-        </button>
-        <p class="mt-12 text-[10px] opacity-30 tracking-widest uppercase">© 2026 AI Support Project.</p>
+    <section class="py-32 px-6 text-center hero-bg">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-black mb-12 glow-text">次は、あなたの番です。</h2>
+            <button class="w-full bg-gradient-to-r from-blue-600 via-indigo-700 to-blue-600 text-white font-black py-8 rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.6)] text-3xl hover:scale-105 transition-all">
+                無料で「設計図」を受け取る
+            </button>
+            <p class="mt-12 text-[10px] opacity-30 tracking-widest uppercase italic">© 2026 AI Support Project. Future is Here.</p>
+        </div>
     </section>
 
 </body>
