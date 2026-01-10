@@ -6,135 +6,118 @@
     <title>AI×好きを形にする「設計図」</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { color: #2d3748; background-color: #fcfcfc; }
-        .section-fade { border-bottom: 1px solid #f0f0f0; }
-        .inner-shadow { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05); }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #1e3a8a, #1e1b4b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        .reveal { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s forwards; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
 
-    <section class="py-24 px-6 text-center bg-white">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-2xl md:text-3xl font-bold leading-snug mb-8 text-gray-900">
-                頑張っているのに、<br>どこか「前に進めていない感覚」はありませんか？
+    <section class="animate-gradient text-white py-32 px-6 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-block bg-blue-500/30 border border-blue-400 text-blue-200 text-xs font-bold px-4 py-1 rounded-full mb-8 reveal">
+                Business & AI Transformation 2026
+            </span>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-8 leading-tight reveal delay-1">
+                頑張っているのに、<br><span class="text-blue-400">「前に進めていない感覚」</span>はありませんか？
             </h1>
-            <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                もし、こんな感覚があったら。
+            <p class="text-lg md:text-xl text-slate-300 mb-12 reveal delay-2">
+                能力の不足ではなく、役割分担のミス。<br>
+                あなたの「好き」を、AIという最強のパートナーで形にする。
             </p>
-            <p class="text-gray-500 italic mb-10">
-                「間違っていないはずなのに、なぜか報われない感じ」<br>
-                「毎日必死に考えているのに、形にならない焦燥感」
-            </p>
-            <div class="w-16 h-1 w-16 h-1 bg-blue-100 mx-auto"></div>
+            <div class="reveal delay-2">
+                <button class="bg-blue-600 hover:bg-blue-500 text-white font-black py-6 px-12 rounded-2xl shadow-2xl transition-all text-xl transform hover:scale-105">
+                    無料で「設計図」を受け取る
+                </button>
+            </div>
         </div>
     </section>
 
-    <section class="py-20 px-6 bg-slate-50 section-fade">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-xl font-bold mb-8 text-center">能力が足りないのではありません。</h2>
-            <p class="text-gray-700 leading-loose mb-6">
-                やり方を知らないわけでも、才能がないわけでもありません。<br>
-                ただ、あなたは今、**「すべてを自分一人でやろうとしている」**だけなのかもしれません。
-            </p>
-            <p class="text-gray-700 leading-loose">
-                文章を考え、構成を練り、形にする。その膨大な工程を一人で背負う構造自体に、無理が生じているのです。自分を責める必要は、どこにもありません。
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-12">もし、こんな感覚があったら。</h2>
+            <div class="space-y-8">
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-left">
+                    <p class="text-slate-600 italic leading-relaxed">「間違っていないはずなのに、なぜか報われない感じ」</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-left">
+                    <p class="text-slate-600 italic leading-relaxed">「毎日必死に考えているのに、形にならない焦燥感」</p>
+                </div>
+            </div>
+            <p class="mt-12 text-slate-800 font-medium">
+                やり方を知らないわけではありません。<br>
+                ただ、すべてを一人で背負う「構造」に無理があるだけなのです。
             </p>
         </div>
     </section>
 
-    <section class="py-20 px-6 bg-white">
-        <div class="max-w-2xl mx-auto">
-            <div class="p-8 border border-gray-100 rounded-2xl bg-gray-50">
-                <h2 class="text-lg font-bold mb-4">問題の本質は「役割分担」にあります</h2>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    多くの人が挫折する本当の原因は「努力」の量ではありません。<br>
-                    **「考える役割」と「作る役割」を混同している**という構造の問題です。<br>
-                    この二つを分けることができない限り、どれだけ頑張っても心は擦り切れてしまいます。
+    <section class="py-24 px-6 bg-slate-900 text-white">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-8 italic text-blue-400 underline decoration-blue-800 underline-offset-8">問題の本質は「役割分担」</h2>
+                <p class="text-slate-400 leading-loose">
+                    多くの人が挫折する原因。それは「考える役割」と「作る役割」を同時にやろうとすること。AIは単なるスキルではなく、あなたの代わりに「実務」を担う道具です。
                 </p>
             </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 bg-blue-900 text-white">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-8">AIは、あなたの「手足」になる道具です</h2>
-            <p class="text-blue-100 leading-relaxed mb-8">
-                AIは特別なスキルでも、魔法でもありません。<br>
-                「考える」というあなたの本質的な役割に集中するために、<br>
-                「形にする」という実務を肩代わりしてくれる、究極の道具です。
-            </p>
-            <p class="text-sm opacity-80">
-                才能の有無は関係ありません。役割を分けるという「選択」をするかどうか、それだけです。
-            </p>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 bg-white">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-center text-2xl font-bold mb-12">夜、考え事をしなくなる毎日。</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                    <h3 class="font-bold text-blue-600 mb-3">思考の余白</h3>
-                    <p class="text-sm text-gray-500">「何を売るか」で悩む時間は消え、創造的な楽しさが戻ってきます。</p>
+            <div class="bg-white/5 p-8 rounded-3xl border border-white/10 shadow-inner">
+                <div class="flex justify-between mb-4 border-b border-white/10 pb-4">
+                    <span class="text-sm">個人努力の限界</span>
+                    <span class="text-blue-400 font-bold text-sm">AI活用の効率</span>
                 </div>
-                <div>
-                    <h3 class="font-bold text-blue-600 mb-3">感情の安定</h3>
-                    <p class="text-sm text-gray-500">孤独な作業から解放され、AIの提案を確認して「OKを出す側」になります。</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-blue-600 mb-3">時間の再定義</h3>
-                    <p class="text-sm text-gray-500">忙しさで削られていた大切な時間が、再びあなたの元へ戻ります。</p>
+                <div class="h-48 flex items-end gap-4 justify-around">
+                    <div class="bg-slate-700 w-12 h-16 rounded-t-lg"></div>
+                    <div class="bg-blue-500 w-12 h-44 rounded-t-lg shadow-[0_0_20px_rgba(59,130,246,0.5)]"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-6 bg-slate-50 border-t border-b border-gray-100">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-xl font-bold mb-6">この状態を作るための「設計図」をお渡しします</h2>
-            <p class="text-gray-600 mb-8 leading-relaxed">
-                これは単なる教材ではありません。あなたの「好き」という熱量を、<br>
-                迷いなく形に変換していくための、具体的なロードマップです。
-            </p>
+    <section class="py-24 px-6 bg-blue-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-center text-3xl font-bold mb-16 text-slate-900">AIを味方にした後の「日常」</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="text-3xl mb-6">🌙</div>
+                    <h3 class="font-bold mb-4">思考の余白</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">夜、考え事をしなくなる。朝からワクワクした気持ちでPCを開けます。</p>
+                </div>
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow border-2 border-blue-400">
+                    <div class="text-3xl mb-6">📈</div>
+                    <h3 class="font-bold mb-4">確認する側へ</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">膨大な作業をAIに任せ、あなたは最後に「OK」を出す側になります。</p>
+                </div>
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="text-3xl mb-6">⏳</div>
+                    <h3 class="font-bold mb-4">時間の奪還</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">「作業」に奪われていた時間が、あなたの「自由」に変わります。</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="py-16 px-6 bg-white">
-        <div class="max-w-2xl mx-auto text-sm text-gray-500 leading-loose">
-            <p class="mb-4">※このご案内は、1年限定の公開としています。</p>
-            <p>
-                AIの進化スピードは速く、手法は常に変化し続けます。だからこそ「永続」を約束する不誠実なことは言いません。今、この瞬間に最適化された、もっとも合理的な手法を鮮度の高いうちに提供することをお約束します。
-            </p>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 bg-gray-50">
+    <section class="py-32 px-6 text-center bg-white">
         <div class="max-w-2xl mx-auto">
-            <h2 class="text-lg font-bold mb-8 text-center">「自分にできるか」という不安へ。</h2>
-            <div class="space-y-6 text-sm text-gray-600 leading-relaxed">
-                <p>「好き」がまだ明確でなくても構いません。何を売ればいいか分からなくても大丈夫です。</p>
-                <p>
-                    多くの人がここで止まってしまうからこそ、私たちは**「判断を肩代わりする型」**を設計しました。あなたが迷う余地を極限まで減らした設計図です。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 text-center bg-white">
-        <div class="max-w-xl mx-auto">
-            <h2 class="text-2xl font-bold mb-10">人生を劇的に変える必要はありません。<br>ただ、「型」を手に入れるだけでいい。</h2>
-            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 rounded-xl shadow-lg transition-all text-xl mb-6">
-                無料で設計図を受け取る
+            <h2 class="text-3xl font-extrabold mb-8 text-slate-900">人生を劇的に変える必要はありません。<br>ただ、「型」を手に入れるだけでいい。</h2>
+            <p class="text-slate-600 mb-12">
+                ※この設計図は、AIの進化スピードに合わせ、1年限定の公開としています。
+            </p>
+            <button class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-black py-8 rounded-[1.5rem] shadow-2xl transition-all text-2xl transform hover:scale-[1.02]">
+                今すぐ公式LINEで受け取る
             </button>
-            <p class="text-xs text-gray-400">
-                あなたの「好き」が、誰かの力に変わる第一歩を。
-            </p>
+            <p class="mt-8 text-xs text-slate-400 italic">2026 AI Support Project All Rights Reserved.</p>
         </div>
     </section>
-
-    <footer class="py-12 bg-white text-center text-gray-300 text-xs border-t border-gray-50">
-        &copy; AI Architecture Project
-    </footer>
 
 </body>
 </html>
