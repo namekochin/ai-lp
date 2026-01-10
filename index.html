@@ -6,81 +6,94 @@
     <title>AI×好きを形にする「設計図」</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 画像のような深い紺と光の背景 */
+        /* 左側の画像の「デジタルな奥行き」を再現する背景 */
         body {
-            background: radial-gradient(circle at top right, #1e3a8a, #0f172a 50%),
-                        radial-gradient(circle at bottom left, #1e1b4b, #0f172a 50%);
-            color: #f8fafc;
-            min-height: 100vh;
+            background-color: #020617;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.5) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(67, 56, 202, 0.3) 0%, transparent 40%),
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            color: #f1f5f9;
         }
-        /* 光るネオンカード */
-        .premium-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.4);
-            box-shadow: 0 0 25px rgba(37, 99, 235, 0.2);
-            transition: all 0.4s ease;
+
+        /* サイバーパンクな光る枠線 */
+        .cyber-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.1), inset 0 0 20px rgba(56, 189, 248, 0.05);
+            position: relative;
+            overflow: hidden;
         }
-        .premium-card:hover {
-            border-color: #60a5fa;
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
-            transform: translateY(-5px);
+
+        .cyber-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+            animation: scan 3s linear infinite;
         }
-        /* 動く光の文字 */
-        .glow-text {
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.6);
-        }
+
+        @keyframes scan { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        .glow-text { text-shadow: 0 0 20px rgba(56, 189, 248, 0.8), 0 0 40px rgba(56, 189, 248, 0.4); }
     </style>
 </head>
 <body class="font-sans antialiased">
 
-    <section class="relative py-24 px-6 text-center overflow-hidden">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="inline-block px-4 py-1 mb-8 border border-blue-400/50 rounded-full text-blue-300 text-xs font-bold bg-blue-900/40 tracking-widest">
+    <section class="relative min-h-screen flex items-center justify-center py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-block px-6 py-2 mb-8 border border-yellow-500/50 rounded-full text-yellow-400 text-sm font-bold bg-yellow-950/30 glow-text">
                 ★ 夢を遂げて飛躍ある ★
             </div>
-            <h1 class="text-4xl md:text-6xl font-black mb-10 leading-tight tracking-tighter glow-text">
+            <h1 class="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter glow-text">
                 あなたの「好き」を武器に、<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-blue-300">知能を、解放する。</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-indigo-400">知能を、解放する。</span>
             </h1>
             
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 mb-16 max-w-3xl mx-auto text-center">
-                <div class="premium-card p-3 rounded-xl"><p class="text-lg font-bold">99%</p><p class="text-[8px] opacity-60">満足度</p></div>
-                <div class="premium-card p-3 rounded-xl"><p class="text-lg font-bold">99円</p><p class="text-[8px] opacity-60">コスト</p></div>
-                <div class="premium-card p-3 rounded-xl"><p class="text-lg font-bold">1/10</p><p class="text-[8px] opacity-60">時間短縮</p></div>
-                <div class="premium-card p-3 rounded-xl"><p class="text-lg font-bold">1/10</p><p class="text-[8px] opacity-60">負担軽減</p></div>
-                <div class="premium-card p-3 rounded-xl"><p class="text-lg font-bold">0円</p><p class="text-[8px] opacity-60">リスク</p></div>
-                <div class="premium-card p-3 rounded-xl"><p class="text-lg font-bold">0円</p><p class="text-[8px] opacity-60">初期費用</p></div>
+            <p class="text-lg text-blue-200/70 mb-12 max-w-2xl mx-auto leading-relaxed">
+                AIという「新時代の羅針盤」を手に。努力の方向性を変え、<br>
+                あなたの内側にある価値を、世界が求める形へと変換します。
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-20 max-w-4xl mx-auto">
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50"><p class="text-2xl font-black text-blue-400">99%</p><p class="text-[10px] uppercase tracking-widest opacity-60">Satisfaction</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50"><p class="text-2xl font-black text-blue-400">99円</p><p class="text-[10px] uppercase tracking-widest opacity-60">Trial Cost</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50"><p class="text-2xl font-black text-blue-400">1/10</p><p class="text-[10px] uppercase tracking-widest opacity-60">Work Time</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50"><p class="text-2xl font-black text-blue-400">1/10</p><p class="text-[10px] uppercase tracking-widest opacity-60">Effort</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50"><p class="text-2xl font-black text-blue-400">0円</p><p class="text-[10px] uppercase tracking-widest opacity-60">No Risk</p></div>
+                <div class="cyber-card p-4 rounded-xl border-blue-500/50"><p class="text-2xl font-black text-blue-400">0円</p><p class="text-[10px] uppercase tracking-widest opacity-60">Start Fee</p></div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 italic tracking-widest text-blue-100">AIを味方にする構造</h2>
+    <section class="py-24 px-6 relative bg-blue-950/20 border-y border-blue-500/20">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#38bdf8 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-20 glow-text italic">AIを味方にする新構造</h2>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="premium-card p-10 rounded-3xl relative">
-                    <span class="absolute top-6 right-8 text-4xl font-black opacity-10">1</span>
-                    <h3 class="text-xl font-bold mb-6 text-blue-300">「好き」を仕事に</h3>
-                    <p class="text-sm leading-relaxed opacity-80">
-                        能力が足りないわけではありません。ただ、一人で抱え込む構造に無理があるだけなのです。
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="cyber-card p-10 rounded-[2rem] border-blue-400/30">
+                    <div class="text-5xl font-black text-blue-500/20 mb-4">01</div>
+                    <h3 class="text-xl font-bold mb-6 text-blue-300 italic">「好き」を仕事に</h3>
+                    <p class="text-sm leading-loose text-slate-400">
+                        「努力」を「構造」に変える。AIがあなたの専門性を24時間形にし続ける、新しい働き方のスタンダード。
                     </p>
                 </div>
-                
-                <div class="premium-card p-10 rounded-3xl relative border-blue-400 bg-blue-900/20">
-                    <span class="absolute top-6 right-8 text-4xl font-black opacity-10 text-blue-400">2</span>
-                    <h3 class="text-xl font-bold mb-6 text-blue-100">判断を肩代わり</h3>
-                    <p class="text-sm leading-relaxed">
-                        AIが実務を担い、あなたは「確認してOKを出す」だけ。思考の余白が、成功を生みます。
+                <div class="cyber-card p-10 rounded-[2rem] border-blue-400 shadow-[0_0_50px_rgba(56,189,248,0.2)] bg-blue-900/40">
+                    <div class="text-5xl font-black text-blue-400/20 mb-4">02</div>
+                    <h3 class="text-xl font-bold mb-6 text-white italic">知能を、解放する</h3>
+                    <p class="text-sm leading-loose text-blue-100">
+                        複雑な実務はすべてAIが肩代わり。あなたはクリエイティブな「意志決定」だけに集中できる環境を。
                     </p>
                 </div>
-
-                <div class="premium-card p-10 rounded-3xl relative">
-                    <span class="absolute top-6 right-8 text-4xl font-black opacity-10">3</span>
-                    <h3 class="text-xl font-bold mb-6 text-blue-300">設計図を手にする</h3>
-                    <p class="text-sm leading-relaxed opacity-80">
-                        孤独な努力はもう終わり。AIがあなたの専属チームとなり、24時間支え続けます。
+                <div class="cyber-card p-10 rounded-[2rem] border-blue-400/30">
+                    <div class="text-5xl font-black text-blue-500/20 mb-4">03</div>
+                    <h3 class="text-xl font-bold mb-6 text-blue-300 italic">孤独な戦いの終焉</h3>
+                    <p class="text-sm leading-loose text-slate-400">
+                        もう一人で悩む必要はありません。最新AIがあなたの思考のパートナーとなり、成功への最短距離を伴走します。
                     </p>
                 </div>
             </div>
@@ -88,11 +101,12 @@
     </section>
 
     <section class="py-32 px-6 text-center">
-        <div class="max-w-xl mx-auto">
-            <button class="w-full bg-gradient-to-r from-yellow-300 to-yellow-500 text-blue-950 font-black py-7 rounded-2xl shadow-[0_0_40px_rgba(234,179,8,0.4)] text-2xl hover:scale-105 transition-all mb-8">
+        <div class="max-w-2xl mx-auto cyber-card p-16 rounded-[3rem] border-blue-500/40 shadow-[0_0_100px_rgba(56,189,248,0.1)]">
+            <h2 class="text-3xl font-bold mb-10 tracking-widest glow-text">次は、あなたの番です。</h2>
+            <button class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-black py-8 rounded-2xl shadow-[0_0_40px_rgba(56,189,248,0.5)] text-2xl hover:scale-105 transition-all active:scale-95">
                 無料で「設計図」を受け取る
             </button>
-            <p class="text-xs opacity-40">2026 AI Support Project All Rights Reserved.</p>
+            <p class="mt-10 text-xs opacity-40 tracking-widest uppercase">© 2026 AI Support Project. Future is Here.</p>
         </div>
     </section>
 
