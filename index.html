@@ -8,111 +8,138 @@
     <style>
         body { background-color: #ffffff; color: #1e293b; font-family: "Hiragino Sans", "Meiryo", sans-serif; overflow-x: hidden; }
         
-        /* ヒーロー：PC・ビジネスマン・グラフが重なる背景 */
-        .hero-complex {
-            position: relative;
-            background: linear-gradient(rgba(240, 249, 255, 0.8), rgba(224, 242, 254, 0.9)),
-                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            padding: 4rem 1.5rem;
+        /* 実写背景セクション */
+        .bg-section {
+            position: relative; background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; justify-content: center; padding: 100px 20px;
         }
+        .overlay { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.9); z-index: 1; }
+        .content { position: relative; z-index: 10; width: 100%; max-width: 1000px; margin: 0 auto; }
+
+        /* キャラクター枠（画像参考：お悩み・解決） */
+        .problem-box { background: white; border-radius: 15px; padding: 2rem; border: 2px solid #e2e8f0; position: relative; margin-top: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .solution-box { background: white; border-radius: 15px; padding: 2rem; border: 3px solid #0ea5e9; position: relative; margin-top: 40px; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.1); }
+        
+        .char-svg { width: 80px; height: 80px; margin: 0 auto 1rem; }
 
         /* 時計回りに光が動く枠 */
         .cyber-card {
             position: relative; background: #ffffff; border-radius: 12px; padding: 2.5px; overflow: hidden; display: flex;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         .cyber-card::before {
             content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: conic-gradient(transparent, transparent, #0ea5e9, transparent 20%);
             animation: rotate 4s linear infinite;
         }
-        .card-inner { background: #ffffff; border-radius: 10px; padding: 1.5rem; width: 100%; z-index: 10; color: #0369a1; text-align: center; }
+        .card-inner { background: #ffffff; border-radius: 10px; padding: 1rem; width: 100%; z-index: 10; color: #0369a1; text-align: center; font-weight: bold; font-size: 0.75rem; }
         @keyframes rotate { 100% { transform: rotate(360deg); } }
 
-        /* キャラクターアイコンのスタイル */
-        .char-icon { width: 60px; height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
-        
         .cta-button {
             background: linear-gradient(90deg, #0ea5e9 0%, #0369a1 100%);
-            color: white; font-weight: 900; padding: 1.8rem 2rem; border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
-            transition: all 0.3s ease;
+            color: white; font-weight: 900; padding: 1.5rem 2rem; border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4); transition: all 0.3s;
         }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(14, 165, 233, 0.6); }
-
-        .text-highlight { background: linear-gradient(transparent 60%, #e0f2fe 60%); }
     </style>
 </head>
 <body class="antialiased">
 
-    <section class="hero-complex px-6 text-center">
-        <div class="max-w-4xl mx-auto z-10 relative">
-            <div class="inline-block px-5 py-1.5 mb-8 border-2 border-sky-500/30 text-sky-600 rounded-full text-xs font-bold tracking-[0.2em] bg-white/90 shadow-md">AI SUPPORT PROJECT 2026</div>
-            <h1 class="text-4xl md:text-6xl font-black mb-10 text-slate-800 leading-tight">どれほど歩いても、<br>景色が変わらない感覚。</h1>
-            
-            <div class="absolute -top-10 -right-10 hidden lg:block">
-                <svg viewBox="0 0 100 100" class="char-icon"><circle cx="50" cy="50" r="45" fill="#e0f2fe"/><path d="M30 40 Q50 20 70 40" stroke="#0ea5e9" stroke-width="5" fill="none"/><circle cx="35" cy="50" r="5" fill="#1e293b"/><circle cx="65" cy="50" r="5" fill="#1e293b"/><path d="M40 70 Q50 80 60 70" stroke="#0ea5e9" stroke-width="3" fill="none"/></svg>
-            </div>
-
-            <p class="text-slate-700 text-lg md:text-xl mb-16 max-w-2xl mx-auto leading-relaxed font-medium bg-white/30 backdrop-blur-sm rounded-lg p-4">
-                「好き」を形にすれば、選べる未来が増えるはずだった。けれど現実は、ただ忙しさだけが積み上がっていく。その違和感の答えを、ここで提示します。
+    <section class="bg-section" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000'); min-height: 100vh;">
+        <div class="overlay" style="background: rgba(240, 249, 255, 0.85);"></div>
+        <div class="content text-center">
+            <div class="inline-block px-5 py-1.5 mb-8 border-2 border-sky-500/30 text-sky-600 rounded-full text-xs font-bold tracking-[0.2em] bg-white">AI SUPPORT PROJECT 2026</div>
+            <h1 class="text-4xl md:text-6xl font-black mb-10 text-slate-800 italic">どれほど歩いても、<br>景色が変わらない感覚。</h1>
+            <p class="text-slate-600 text-lg md:text-xl mb-16 max-w-2xl mx-auto leading-relaxed">
+                「好き」を形にすれば、選べる未来が増えるはずだった。けれど現実は、ただ忙しさだけが積み上がっていく。このまま、数年後も同じ場所に立ち続けているのではないか。その静かな恐怖の正体を、あなたは既に見抜いているはずです。
             </p>
-            
             <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
-                <div class="cyber-card"><div class="card-inner py-2 font-bold text-[10px]">構造の変革</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 font-bold text-[10px]">思考の余白</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 font-bold text-[10px]">役割の分離</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 font-bold text-[10px]">判断の委譲</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 font-bold text-[10px]">設計図の共有</div></div>
-                <div class="cyber-card"><div class="card-inner py-2 font-bold text-[10px]">誠実な一歩</div></div>
+                <div class="cyber-card"><div class="card-inner">構造の変革</div></div>
+                <div class="cyber-card"><div class="card-inner">思考の余白</div></div>
+                <div class="cyber-card"><div class="card-inner">役割の分離</div></div>
+                <div class="cyber-card"><div class="card-inner">判断の委譲</div></div>
+                <div class="cyber-card"><div class="card-inner">設計図の共有</div></div>
+                <div class="cyber-card"><div class="card-inner">誠実な一歩</div></div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-black mb-12 text-slate-800 italic">能力が足りないわけではありません。</h2>
-            <div class="space-y-10 text-lg md:text-xl text-slate-700 leading-loose font-medium">
-                <p>問題の正体は、<span class="text-sky-600 font-extrabold border-b-4 border-sky-100">「すべてを一人で背負おうとする構造」</span>にあります。</p>
-                <p>文章を考え、形にする膨大な工程を一人で背負う無理。その構造さえ変えれば、景色は一瞬で変わります。</p>
+    <section class="bg-section" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=2000');">
+        <div class="overlay"></div>
+        <div class="content text-center">
+            <h2 class="text-3xl font-black mb-16">こんな<span class="text-sky-600 italic">お悩み</span>ありませんか？</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-20">
+                <div class="problem-box">
+                    <svg class="char-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f1f5f9" stroke="#cbd5e1"/><path d="M35 45 Q50 35 65 45" stroke="#64748b" stroke-width="2" fill="none"/><circle cx="40" cy="55" r="3" fill="#64748b"/><circle cx="60" cy="55" r="3" fill="#64748b"/><path d="M45 75 Q50 70 55 75" stroke="#64748b" stroke-width="2" fill="none"/></svg>
+                    <p class="text-sm font-bold">文章や構成を考えるのが<br><span class="text-sky-600">自分一人の作業</span>で限界</p>
+                </div>
+                <div class="problem-box">
+                    <svg class="char-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f1f5f9" stroke="#cbd5e1"/><path d="M30 50 L40 50 M60 50 L70 50" stroke="#64748b" stroke-width="2"/><path d="M40 75 Q50 70 60 75" stroke="#64748b" stroke-width="2" fill="none"/></svg>
+                    <p class="text-sm font-bold">才能や努力が足りないと<br><span class="text-sky-600">自分を責めてしまう</span></p>
+                </div>
+                <div class="problem-box">
+                    <svg class="char-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f1f5f9" stroke="#cbd5e1"/><circle cx="40" cy="50" r="3" fill="#64748b"/><circle cx="60" cy="50" r="3" fill="#64748b"/><path d="M40 70 Q50 80 60 70" stroke="#64748b" stroke-width="2" fill="none"/></svg>
+                    <p class="text-sm font-bold">数年後も<span class="text-sky-600">同じ場所にいる</span>気がして<br>漠然とした不安がある</p>
+                </div>
+            </div>
+
+            <div class="section-title mb-10">
+                <p class="text-2xl font-black text-slate-800">そのお悩み、<span class="text-sky-600 border-b-4 border-sky-100">「設計図」</span>で解決します！</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="solution-box">
+                    <svg class="char-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#e0f2fe" stroke="#0ea5e9"/><circle cx="40" cy="45" r="3" fill="#0369a1"/><circle cx="60" cy="45" r="3" fill="#0369a1"/><path d="M40 65 Q50 80 60 65" stroke="#0ea5e9" stroke-width="3" fill="none"/></svg>
+                    <p class="text-sm font-bold">AIに「作る」を任せ、<br><span class="text-sky-600">思考の余白</span>が生まれる</p>
+                </div>
+                <div class="solution-box">
+                    <svg class="char-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#e0f2fe" stroke="#0ea5e9"/><path d="M35 45 Q40 40 45 45 M55 45 Q60 40 65 45" stroke="#0369a1" stroke-width="2" fill="none"/><path d="M40 70 Q50 80 60 70" stroke="#0ea5e9" stroke-width="3" fill="none"/></svg>
+                    <p class="text-sm font-bold">構造を変えるから<br><span class="text-sky-600">自分を責める必要</span>が消える</p>
+                </div>
+                <div class="solution-box">
+                    <svg class="char-svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#e0f2fe" stroke="#0ea5e9"/><path d="M30 40 Q50 20 70 40" stroke="#0ea5e9" stroke-width="4" fill="none"/><circle cx="40" cy="50" r="3" fill="#0369a1"/><circle cx="60" cy="50" r="3" fill="#0369a1"/><path d="M40 70 Q50 80 60 70" stroke="#0ea5e9" stroke-width="3" fill="none"/></svg>
+                    <p class="text-sm font-bold">確かな足場で<br><span class="text-sky-600">景色が変わる</span>のを実感する</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-slate-50">
-        <div class="max-w-5xl mx-auto">
+    <section class="bg-section" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000');">
+        <div class="overlay" style="background: rgba(2, 6, 23, 0.85);"></div>
+        <div class="content text-white text-center">
+            <h3 class="text-3xl font-bold mb-8 text-sky-400">AIは、魔法ではない。</h3>
+            <p class="text-slate-300 text-lg leading-loose mb-12 max-w-3xl mx-auto italic">
+                AIは主役ではありません。あなたの「考える役割」を引き出し、「作る役割」を代行する頼れる裏方です。この分離ができたとき、毎日を支配していた作業が消え、思考に純粋な余白が生まれます。
+            </p>
+            <div class="bg-white/10 p-8 rounded-xl text-left border border-white/20 mb-12">
+                <p class="text-sky-400 font-bold mb-4">【1年限定の提供である理由】</p>
+                <p class="text-sm text-slate-300 leading-relaxed">AIの変化は速すぎます。永続を約束するのは不誠実です。だからこそ、この1年であなたが自立し、AIを使いこなす「型」を完璧に身につけることに全力を注ぎます。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-section" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=2000');">
+        <div class="overlay"></div>
+        <div class="content">
             <h2 class="text-3xl font-black text-center mb-16 text-slate-800">実践者の声</h2>
-            <div class="grid md:grid-cols-2 gap-10">
-                <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6 border border-white relative">
-                    <div class="w-16 h-16 bg-sky-100 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-sky-200">
-                        <svg viewBox="0 0 100 100" class="w-10 h-10 fill-sky-600"><circle cx="50" cy="35" r="20"/><path d="M20 90c0-15 10-25 30-25s30 10 30 25H20z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-800 text-lg">片山 健 様 (40代・経営者)</p>
-                        <p class="text-sm text-slate-500 italic mt-1">「判断を一人でしない構造」に変えただけで、活動が劇的にスムーズになりました。</p>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/95 p-10 rounded-3xl shadow-xl">
+                    <p class="font-bold text-slate-800 text-xl mb-4">片山 健 様 (40代・経営者)</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">「判断を一人でしない構造」に変えただけで、停滞していた活動が動き出し、本来の経営に集中できるようになりました。</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6 border border-white">
-                    <div class="w-16 h-16 bg-rose-100 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-rose-200">
-                        <svg viewBox="0 0 100 100" class="w-10 h-10 fill-rose-500"><circle cx="50" cy="35" r="18"/><path d="M20 90c0-12 10-22 30-22s30 10 30 22H20z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-bold text-slate-800 text-lg">河田 恵美 様 (30代・個人)</p>
-                        <p class="text-sm text-slate-500 italic mt-1">何をすればいいか分からない不安も、設計図があれば迷わず一歩を踏み出せました。</p>
-                    </div>
+                <div class="bg-white/95 p-10 rounded-3xl shadow-xl">
+                    <p class="font-bold text-slate-800 text-xl mb-4">河田 恵美 様 (30代・個人)</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">設計図のおかげで迷わず一歩を踏み出せました。実務をAIに任せ、「好き」を追求する毎日が本当に充実しています。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-40 px-6 hero-complex">
-        <div class="max-w-2xl mx-auto text-center z-10">
-            <h2 class="text-3xl font-black mb-12 text-slate-800 italic">決断ではなく、小さな選択を。</h2>
+    <section class="bg-section" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2000'); min-height: 80vh;">
+        <div class="overlay" style="background: rgba(240, 249, 255, 0.9);"></div>
+        <div class="content text-center">
+            <h2 class="text-3xl font-black mb-12 italic text-slate-800">決断ではなく、小さな選択を。</h2>
             <button class="cta-button w-full max-w-lg text-2xl tracking-widest">無料で「設計図」を受け取る</button>
-            <p class="mt-16 text-[10px] text-slate-400 tracking-[0.4em] uppercase font-bold">© 2026 AI Support Project.</p>
+            <p class="mt-20 text-[10px] text-slate-400 font-bold uppercase tracking-widest">© 2026 AI Support Project.</p>
         </div>
     </section>
 
