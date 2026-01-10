@@ -6,18 +6,23 @@
     <title>AI×好きを形にする「設計図」</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #ffffff; color: #1e293b; font-family: "Hiragino Sans", "Meiryo", sans-serif; overflow-x: hidden; }
+        body { background-color: #ffffff; color: #1e293b; font-family: "Hiragino Sans", "Meiryo", sans-serif; }
         
-        /* 確定した実写背景（全セクション共通） */
-        .full-bg {
-            position: relative;
-            background: linear-gradient(rgba(240, 249, 255, 0.85), rgba(224, 242, 254, 0.9)),
+        /* 確定した実写背景（ヒーロー・セクション共通） */
+        .hero-bg {
+            background: linear-gradient(rgba(240, 249, 255, 0.8), rgba(224, 242, 254, 0.9)),
                         url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000');
             background-size: cover; background-position: center; background-attachment: fixed;
-            padding: 100px 20px;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
         }
 
-        /* 光が動く枠 */
+        .section-bg {
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                        url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+        }
+
+        /* 時計回りに光が動く枠（確定版） */
         .cyber-card {
             position: relative; background: #ffffff; border-radius: 12px; padding: 2.5px; overflow: hidden; display: flex;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
@@ -27,13 +32,13 @@
             background: conic-gradient(transparent, transparent, #0ea5e9, transparent 20%);
             animation: rotate 4s linear infinite;
         }
-        .card-inner { background: #ffffff; border-radius: 10px; padding: 1rem; width: 100%; z-index: 10; color: #0369a1; text-align: center; font-weight: bold; font-size: 0.75rem; }
+        .card-inner { background: #ffffff; border-radius: 10px; padding: 1.5rem; width: 100%; z-index: 10; color: #0369a1; text-align: center; font-weight: bold; }
         @keyframes rotate { 100% { transform: rotate(360deg); } }
 
-        /* 画像を参考にした「具体的なビジネスマン」キャラ枠 */
-        .char-box { background: white; border-radius: 15px; padding: 2.5rem; border: 1.5px solid #e2e8f0; position: relative; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .char-box-solve { border: 3px solid #0ea5e9; box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15); }
-        .char-img { width: 120px; height: 120px; margin: 0 auto 1.5rem; object-fit: contain; }
+        /* アップロード画像を再現したキャラクター枠 */
+        .char-box { background: white; border-radius: 15px; padding: 2rem; border: 1px solid #e2e8f0; position: relative; text-align: center; }
+        .char-box-solve { border: 2px solid #0ea5e9; box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1); }
+        .char-img { width: 100px; height: 100px; margin: 0 auto 1.5rem; }
 
         .cta-button {
             background: linear-gradient(90deg, #0ea5e9 0%, #0369a1 100%);
@@ -44,12 +49,12 @@
 </head>
 <body class="antialiased">
 
-    <section class="full-bg min-height-screen flex items-center justify-center text-center">
-        <div class="max-w-4xl mx-auto z-10">
-            <div class="inline-block px-5 py-1.5 mb-8 border-2 border-sky-500/30 text-sky-600 rounded-full text-xs font-bold tracking-[0.2em] bg-white/90 shadow-sm">AI SUPPORT PROJECT 2026</div>
-            <h1 class="text-4xl md:text-6xl font-black mb-10 text-slate-800 italic leading-tight">どれほど歩いても、<br>景色が変わらない感覚。</h1>
-            <p class="text-slate-700 text-lg md:text-xl mb-16 max-w-2xl mx-auto leading-relaxed font-medium">「好き」を形にすれば、選べる未来が増えるはずだった。けれど現実は、ただ忙しさだけが積み上がっていく。その違和感の答えを、ここで提示します。</p>
-            <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+    <section class="hero-bg px-6 text-center">
+        <div class="max-w-4xl mx-auto z-10 py-20">
+            <div class="inline-block px-5 py-1.5 mb-8 border-2 border-sky-500/30 text-sky-600 rounded-full text-xs font-bold tracking-[0.2em] bg-white/90">AI SUPPORT PROJECT 2026</div>
+            <h1 class="text-4xl md:text-6xl font-black mb-10 text-slate-800 italic">どれほど歩いても、<br>景色が変わらない感覚。</h1>
+            <p class="text-slate-700 text-lg md:text-xl mb-16 max-w-2xl mx-auto leading-relaxed">「好き」を形にすれば、選べる未来が増えるはずだった。けれど現実は、ただ忙しさだけが積み上がっていく。このまま、数年後も同じ場所に立ち続けているのではないか。その違和感の答えを、ここで提示します。</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 <div class="cyber-card"><div class="card-inner">構造の変革</div></div>
                 <div class="cyber-card"><div class="card-inner">思考の余白</div></div>
                 <div class="cyber-card"><div class="card-inner">役割の分離</div></div>
@@ -60,10 +65,88 @@
         </div>
     </section>
 
-    <section class="full-bg">
+    <section class="py-24 px-6 section-bg">
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-3xl font-black mb-16">こんな<span class="text-sky-600">お悩み</span>ありませんか？</h2>
             
             <div class="grid md:grid-cols-3 gap-8 mb-20">
                 <div class="char-box">
-                    <img src="
+                    <img src="https://api.iconify.design/heroicons:user-circle.svg?color=%2364748b" class="char-img opacity-50" alt="困り顔">
+                    <p class="font-bold text-slate-700">文章を自分一人で<br><span class="text-sky-600 underline">考えるのが手間</span></p>
+                </div>
+                <div class="char-box">
+                    <img src="https://api.iconify.design/heroicons:chat-bubble-left-ellipsis.svg?color=%2364748b" class="char-img opacity-50" alt="困り顔">
+                    <p class="font-bold text-slate-700">返信や連絡が<br><span class="text-sky-600 underline">すべて手動送信</span></p>
+                </div>
+                <div class="char-box">
+                    <img src="https://api.iconify.design/heroicons:clock.svg?color=%2364748b" class="char-img opacity-50" alt="困り顔">
+                    <p class="font-bold text-slate-700">時間が取れなくて<br><span class="text-sky-600 underline">フォローに活用できていない</span></p>
+                </div>
+            </div>
+
+            <div class="bg-sky-600 text-white py-4 px-10 inline-block rounded-full font-black text-xl mb-16 shadow-lg">そのお悩みは「設計図」で解決！</div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="char-box char-box-solve">
+                    <img src="https://api.iconify.design/heroicons:check-badge.svg?color=%230ea5e9" class="char-img" alt="笑顔">
+                    <p class="font-bold text-sky-800">AIとの連携で<br><span class="text-sky-500">データ紐付けが自動</span></p>
+                </div>
+                <div class="char-box char-box-solve">
+                    <img src="https://api.iconify.design/heroicons:sparkles.svg?color=%230ea5e9" class="char-img" alt="笑顔">
+                    <p class="font-bold text-sky-800">返信や通知が<br><span class="text-sky-500">すべて自動送信</span></p>
+                </div>
+                <div class="char-box char-box-solve">
+                    <img src="https://api.iconify.design/heroicons:face-smile.svg?color=%230ea5e9" class="char-img" alt="笑顔">
+                    <p class="font-bold text-sky-800">生まれた余白で<br><span class="text-sky-500">フォローに活用できる</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-slate-900 text-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-sky-400 italic">AIは、魔法ではない。</h2>
+            <p class="text-lg leading-loose mb-12 text-slate-300">AIは主役ではありません。「考える役割」をあなたに、「作る役割」をAIに分けるための頼れる裏方です。この分離ができたとき、毎日を支配していた作業が消え、思考に純粋な余白が生まれます。朝起きたときの重苦しい不安が消えている。そんな、確かな足場を手にする感覚を、あなたはすぐに実感するはずです。</p>
+            <div class="bg-white/10 p-10 rounded-2xl text-left border border-white/20">
+                <p class="text-sky-300 font-bold mb-4">なぜ1年限定なのか</p>
+                <p class="text-sm leading-relaxed text-slate-300 font-medium">AIの変化は速すぎます。永続を約束するのは不誠実です。だからこそ、この1年であなたが自立し、AIを使いこなす「型」を完全に身につけることに全力を注ぎます。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 section-bg">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-black text-center mb-16 text-slate-800">実践者の声</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-white p-10 rounded-3xl shadow-xl flex items-center gap-8 border border-sky-100">
+                    <div class="w-20 h-20 bg-sky-100 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-sky-200">
+                        <svg viewBox="0 0 100 100" class="w-12 h-12 fill-sky-600"><circle cx="50" cy="35" r="20"/><path d="M20 90c0-15 10-25 30-25s30 10 30 25H20z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-xl">片山 健 様 (40代・経営者)</p>
+                        <p class="text-sm text-slate-500 mt-2">「判断を一人でしない構造」に変えただけで、活動が劇的にスムーズになりました。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl flex items-center gap-8 border border-rose-100">
+                    <div class="w-20 h-20 bg-rose-50 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-rose-200">
+                        <svg viewBox="0 0 100 100" class="w-12 h-12 fill-rose-500"><circle cx="50" cy="35" r="18"/><path d="M20 90c0-12 10-22 30-22s30 10 30 22H20z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-xl">河田 恵美 様 (30代・個人)</p>
+                        <p class="text-sm text-slate-500 mt-2">何をすればいいか分からない不安も、設計図があれば迷わず一歩を踏み出せました。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-bg py-40 px-6 text-center">
+        <div class="max-w-2xl mx-auto z-10">
+            <h2 class="text-3xl font-black mb-12 text-slate-800 italic">決断ではなく、小さな選択を。</h2>
+            <button class="cta-button w-full max-w-lg text-2xl tracking-widest">無料で「設計図」を受け取る</button>
+            <p class="mt-20 text-[10px] text-slate-400 font-bold tracking-[0.3em] uppercase">© 2026 AI Support Project.</p>
+        </div>
+    </section>
+
+</body>
+</html>
