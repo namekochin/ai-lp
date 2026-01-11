@@ -8,27 +8,26 @@
     <style>
         body { background-color: #ffffff; color: #1e293b; font-family: "Hiragino Sans", "Meiryo", sans-serif; overflow-x: hidden; }
         
-        /* ヒーロー：PC・ビジネスマン・グラフが重なる背景 */
+        /* ヒーロー背景：PC・ビジネスマン */
         .hero-complex {
             position: relative;
             background: linear-gradient(rgba(240, 249, 255, 0.8), rgba(224, 242, 254, 0.9)),
                         url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
+            background-size: cover; background-position: center;
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             padding: 4rem 1.5rem;
         }
 
-        /* 指示のあった背景1：AIを連想させる背景 */
+        /* 背景変更1：AI背景 */
         .ai-bg-1 {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+            background: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)),
                         url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2000');
             background-size: cover; background-position: center;
         }
 
-        /* 指示のあった背景2：AI/ネットワークを連想させる背景 */
+        /* 背景変更2：ネットワーク背景 */
         .ai-bg-2 {
-            background: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)),
+            background: linear-gradient(rgba(248, 250, 252, 0.93), rgba(248, 250, 252, 0.93)),
                         url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000');
             background-size: cover; background-position: center;
         }
@@ -43,32 +42,25 @@
             background: conic-gradient(transparent, transparent, #0ea5e9, transparent 20%);
             animation: rotate 4s linear infinite;
         }
-        .card-inner { background: #ffffff; border-radius: 10px; padding: 1.5rem; width: 100%; z-index: 10; color: #0369a1; text-align: center; }
+        .card-inner { background: #ffffff; border-radius: 10px; padding: 1rem; width: 100%; z-index: 10; color: #0369a1; text-align: center; }
         @keyframes rotate { 100% { transform: rotate(360deg); } }
 
-        /* キャラクターアイコンのスタイル */
-        .char-icon { width: 80px; height: 80px; margin: 0 auto 1.5rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
-        
         .cta-button {
             background: linear-gradient(90deg, #0ea5e9 0%, #0369a1 100%);
             color: white; font-weight: 900; padding: 1.8rem 2rem; border-radius: 15px;
             box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
-            transition: all 0.3s ease;
         }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(14, 165, 233, 0.6); }
-
-        .text-highlight { background: linear-gradient(transparent 60%, #e0f2fe 60%); }
     </style>
 </head>
 <body class="antialiased">
 
     <section class="hero-complex px-6 text-center">
         <div class="max-w-4xl mx-auto z-10 relative">
-            <div class="inline-block px-5 py-1.5 mb-8 border-2 border-sky-500/30 text-sky-600 rounded-full text-xs font-bold tracking-[0.2em] bg-white/90 shadow-md">AI SUPPORT PROJECT 2026</div>
-            <h1 class="text-4xl md:text-6xl font-black mb-10 text-slate-800 leading-tight">どれほど歩いても、<br>景色が変わらない感覚。</h1>
+            <div class="inline-block px-5 py-1.5 mb-8 border-2 border-sky-500/30 text-sky-600 rounded-full text-xs font-bold tracking-[0.2em] bg-white/90">AI SUPPORT PROJECT 2026</div>
+            <h1 class="text-4xl md:text-6xl font-black mb-10 text-slate-800 leading-tight italic">どれほど歩いても、<br>景色が変わらない感覚。</h1>
             
             <p class="text-slate-700 text-lg md:text-xl mb-16 max-w-2xl mx-auto leading-relaxed font-medium bg-white/30 backdrop-blur-sm rounded-lg p-4">
-                「好き」を形にすれば、選べる未来が増えるはずだった。けれど現現実、ただ忙しさだけが積み上がっていく。その違和感の答えを、ここで提示します。
+                「好き」を形にすれば、選べる未来が増えるはずだった。けれど現実は、ただ忙しさだけが積み上がっていく。その違和感の答えを、ここで提示します。
             </p>
             
             <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
@@ -84,23 +76,20 @@
 
     <section class="py-24 px-6 ai-bg-1 text-center">
         <div class="max-w-3xl mx-auto">
-            <svg viewBox="0 0 100 100" class="char-icon"><path d="M50 85C65 85 75 75 75 60V40C75 25 65 15 50 15C35 15 25 25 25 40V60C25 75 35 85 50 85Z" stroke="#334155" stroke-width="2" fill="white"/><path d="M35 35C38 33 42 33 45 35M55 35C58 33 62 33 65 35" stroke="#334155" stroke-width="2"/><circle cx="40" cy="45" r="2" fill="#334155"/><circle cx="60" cy="45" r="2" fill="#334155"/><path d="M45 65Q50 62 55 65" stroke="#334155" stroke-width="2" fill="none"/></svg>
             <h2 class="text-3xl md:text-4xl font-black mb-12 text-slate-800 italic">能力が足りないわけではありません。</h2>
             <div class="space-y-10 text-lg md:text-xl text-slate-700 leading-loose font-medium">
                 <p>問題の正体は、<span class="text-sky-600 font-extrabold border-b-4 border-sky-100">「すべてを一人で背負おうとする構造」</span>にあります。</p>
                 <p>文章を考え、形にする膨大な工程を一人で背負う無理。その構造さえ変えれば、景色は一瞬で変わります。</p>
+                <p class="pt-6 border-t border-slate-200">AIは主役ではありません。「考える役割」をあなたに、「作る役割」をAIに分けるための頼れる裏方です。この分離ができたとき、毎日を支配していた作業が消え、思考に純粋な余白が生まれます。朝起きたときの重苦しい不安が消えている。そんな、確かな足場を手にする感覚を、あなたはすぐに実感するはずです。</p>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6 ai-bg-2">
         <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <svg viewBox="0 0 100 100" class="char-icon"><path d="M50 85C65 85 75 75 75 60V40C75 25 65 15 50 15C35 15 25 25 25 40V60C25 75 35 85 50 85Z" stroke="#0ea5e9" stroke-width="2" fill="white"/><circle cx="40" cy="45" r="3" fill="#0369a1"/><circle cx="60" cy="45" r="3" fill="#0369a1"/><path d="M40 65Q50 75 60 65" stroke="#0ea5e9" stroke-width="3" fill="none"/></svg>
-                <h2 class="text-3xl font-black text-slate-800">実践者の声</h2>
-            </div>
+            <h2 class="text-3xl font-black text-center mb-16 text-slate-800 italic">実践者の声</h2>
             <div class="grid md:grid-cols-2 gap-10">
-                <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6 border border-white relative">
+                <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6 border border-white">
                     <div class="w-16 h-16 bg-sky-100 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-sky-200">
                         <svg viewBox="0 0 100 100" class="w-10 h-10 fill-sky-600"><circle cx="50" cy="35" r="20"/><path d="M20 90c0-15 10-25 30-25s30 10 30 25H20z"/></svg>
                     </div>
