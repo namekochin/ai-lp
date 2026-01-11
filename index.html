@@ -19,6 +19,20 @@
             padding: 4rem 1.5rem;
         }
 
+        /* 指示のあった背景1：AIを連想させる背景 */
+        .ai-bg-1 {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                        url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+        }
+
+        /* 指示のあった背景2：AI/ネットワークを連想させる背景 */
+        .ai-bg-2 {
+            background: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+        }
+
         /* 時計回りに光が動く枠 */
         .cyber-card {
             position: relative; background: #ffffff; border-radius: 12px; padding: 2.5px; overflow: hidden; display: flex;
@@ -33,7 +47,7 @@
         @keyframes rotate { 100% { transform: rotate(360deg); } }
 
         /* キャラクターアイコンのスタイル */
-        .char-icon { width: 60px; height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+        .char-icon { width: 80px; height: 80px; margin: 0 auto 1.5rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
         
         .cta-button {
             background: linear-gradient(90deg, #0ea5e9 0%, #0369a1 100%);
@@ -53,12 +67,8 @@
             <div class="inline-block px-5 py-1.5 mb-8 border-2 border-sky-500/30 text-sky-600 rounded-full text-xs font-bold tracking-[0.2em] bg-white/90 shadow-md">AI SUPPORT PROJECT 2026</div>
             <h1 class="text-4xl md:text-6xl font-black mb-10 text-slate-800 leading-tight">どれほど歩いても、<br>景色が変わらない感覚。</h1>
             
-            <div class="absolute -top-10 -right-10 hidden lg:block">
-                <svg viewBox="0 0 100 100" class="char-icon"><circle cx="50" cy="50" r="45" fill="#e0f2fe"/><path d="M30 40 Q50 20 70 40" stroke="#0ea5e9" stroke-width="5" fill="none"/><circle cx="35" cy="50" r="5" fill="#1e293b"/><circle cx="65" cy="50" r="5" fill="#1e293b"/><path d="M40 70 Q50 80 60 70" stroke="#0ea5e9" stroke-width="3" fill="none"/></svg>
-            </div>
-
             <p class="text-slate-700 text-lg md:text-xl mb-16 max-w-2xl mx-auto leading-relaxed font-medium bg-white/30 backdrop-blur-sm rounded-lg p-4">
-                「好き」を形にすれば、選べる未来が増えるはずだった。けれど現実は、ただ忙しさだけが積み上がっていく。その違和感の答えを、ここで提示します。
+                「好き」を形にすれば、選べる未来が増えるはずだった。けれど現現実、ただ忙しさだけが積み上がっていく。その違和感の答えを、ここで提示します。
             </p>
             
             <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
@@ -72,8 +82,9 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white text-center">
+    <section class="py-24 px-6 ai-bg-1 text-center">
         <div class="max-w-3xl mx-auto">
+            <svg viewBox="0 0 100 100" class="char-icon"><path d="M50 85C65 85 75 75 75 60V40C75 25 65 15 50 15C35 15 25 25 25 40V60C25 75 35 85 50 85Z" stroke="#334155" stroke-width="2" fill="white"/><path d="M35 35C38 33 42 33 45 35M55 35C58 33 62 33 65 35" stroke="#334155" stroke-width="2"/><circle cx="40" cy="45" r="2" fill="#334155"/><circle cx="60" cy="45" r="2" fill="#334155"/><path d="M45 65Q50 62 55 65" stroke="#334155" stroke-width="2" fill="none"/></svg>
             <h2 class="text-3xl md:text-4xl font-black mb-12 text-slate-800 italic">能力が足りないわけではありません。</h2>
             <div class="space-y-10 text-lg md:text-xl text-slate-700 leading-loose font-medium">
                 <p>問題の正体は、<span class="text-sky-600 font-extrabold border-b-4 border-sky-100">「すべてを一人で背負おうとする構造」</span>にあります。</p>
@@ -82,9 +93,12 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-slate-50">
+    <section class="py-24 px-6 ai-bg-2">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-black text-center mb-16 text-slate-800">実践者の声</h2>
+            <div class="text-center mb-12">
+                <svg viewBox="0 0 100 100" class="char-icon"><path d="M50 85C65 85 75 75 75 60V40C75 25 65 15 50 15C35 15 25 25 25 40V60C25 75 35 85 50 85Z" stroke="#0ea5e9" stroke-width="2" fill="white"/><circle cx="40" cy="45" r="3" fill="#0369a1"/><circle cx="60" cy="45" r="3" fill="#0369a1"/><path d="M40 65Q50 75 60 65" stroke="#0ea5e9" stroke-width="3" fill="none"/></svg>
+                <h2 class="text-3xl font-black text-slate-800">実践者の声</h2>
+            </div>
             <div class="grid md:grid-cols-2 gap-10">
                 <div class="bg-white p-8 rounded-3xl shadow-xl flex items-center gap-6 border border-white relative">
                     <div class="w-16 h-16 bg-sky-100 rounded-full flex-shrink-0 flex items-center justify-center border-2 border-sky-200">
